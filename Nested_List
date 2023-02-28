@@ -1,0 +1,15 @@
+nested_list = []
+if __name__ == '__main__':
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        nested_list.append([name, score])
+    def get_score(sublist):
+        return sublist[1]
+    nested_list.sort(key=get_score)
+    second_lowest_score = sorted(set([score for name, score in nested_list]))[1]
+    names = sorted([name for name, score in nested_list if score == second_lowest_score])
+    names.sort()
+    for name in names:
+        print(name)
+ 
